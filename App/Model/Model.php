@@ -9,23 +9,27 @@ abstract class Model
     private array $errors = [];
 
 
-    final public function setError(string $msg) : void
+    final public function setError(string $msg): void
     {
         $this->errors[] = $msg;
     }
 
-    final public function getErrors() : string
+    final public function getErrors(): string
     {
+        if (empty($this->errors)) 
+        {
+            return ""; 
+        }
+
         $msg = "<ul>";
 
-        foreach($this->errors as $error)
-            $msg .= "<li>$error</li>";
-
+        foreach ($this->errors as $error) 
+        {
+            $msg .= "<li>" . htmlspecialchars($error) . "</li>";
+        }
+        
         $msg .= "</ul>";
 
         return $msg;
     }
-
-
-
 }

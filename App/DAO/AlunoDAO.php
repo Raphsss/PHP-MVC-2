@@ -4,7 +4,6 @@ namespace App\DAO;
 
 use App\Model\AlunoModel;
 
-use \PDO;
 use PDOException;
 
 final class AlunoDAO extends DAO
@@ -14,15 +13,15 @@ final class AlunoDAO extends DAO
         parent::__construct();
     }
 
-    public function insert(AlunoModel $model)
+    public function insert(AlunoModel $model) 
     {
-        $sql = "INSERT INTO Aluno VALUES (?, ?, ?)";
+        $sql = "INSERT INTO Aluno (nome, ra, curso) VALUES (?, ?, ?)";
 
-        $stmt = $this->conn->prepare($sql);
+        $stmt = parent::$conn->prepare($sql);
 
-        $stmt->bindValue(1, $model->nome);
+        $stmt->bindValue(1, $model->Nome);
         $stmt->bindValue(2, $model->RA);
-        $stmt->bindValue(3, $model->curso);
+        $stmt->bindValue(3, $model->Curso);
 
         try {
             $stmt->execute();
@@ -31,8 +30,48 @@ final class AlunoDAO extends DAO
         }
     }
 
-    public function update(AlunoModel $model) 
+    public function update(AlunoModel $model) : AlunoModel
     {
+        $sql = "UPDATE aluno SET nome=?, ra=?, curso=? WHERE id=? ";
+
+        $stmt = parent::$conn->prepare($sql);
+        $stmt->bindValue(1, $model->Nome);
+        $stmt->bindValue(2, $model->RA);
+        $stmt->bindValue(3, $model->Curso);
+        $stmt->bindValue(4, $model->Id);
+        $stmt->execute();
         
+        return $model;
+    }
+
+    public function delete(int $id) : bool
+    {
+        $sql = "DELETE FROM aluno WHERE id=? ";
+
+        $stmt = parent::$conn->prepare($sql);  
+        $stmt->bindValue(1, $id);
+
+        return $stmt->execute();
+    }
+
+    public function select() : array
+    {
+        $sql = "SELECT * FROM Aluno";
+
+        $stmt = parent::$conn->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(DAO::FETCH_CLASS, "App\Model\AlunoModel");
+    }
+
+    public function selectById(int $id)
+    {
+        $sql = "SELECT * FROM aluno WHERE id=? ";
+
+        $stmt = parent::$conn->prepare($sql);  
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return $stmt->fetchObject("App\Model\AlunoModel");
     }
 }

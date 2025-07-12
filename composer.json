@@ -2,7 +2,7 @@
     "name": "rafao/app",
     "autoload": {
         "psr-4": {
-            "Rafao\\App\\": "src/"
+            "App\\": "App/"
         }
     },
     "authors": [
@@ -11,5 +11,7 @@
             "email": "rafaoliveira2009@Outlook.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=8.4"
+    }
 }

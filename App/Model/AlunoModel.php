@@ -12,12 +12,29 @@ final class AlunoModel extends Model
     {
         $dao = new AlunoDAO();
 
-        if($this->id)
+        if($this->Id)
         {
             $dao->update($this);
             return;
         }
 
         $dao->insert($this);
+    }
+
+    function getById(int $id) : ?AlunoModel
+    {
+        return new AlunoDAO()->selectById($id);
+    }
+
+    function getAllRows() : array
+    {
+        $this->rows = new AlunoDAO()->select();
+
+        return $this->rows;
+    }
+
+    function delete(int $id) : bool
+    {
+        return (new AlunoDAO())->delete($id);
     }
 }

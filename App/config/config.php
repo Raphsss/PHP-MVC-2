@@ -2,7 +2,7 @@
 
 // Caminhos de diretorio
 define('BASE_DIR', dirname(__FILE__, 2));
-define('VIEWS', BASE_DIR . '/App/View');
+define('VIEWS', BASE_DIR . '/View');
 
 // Dados de conexão com o banco
 $_ENV['db']['host'] = 'localhost';

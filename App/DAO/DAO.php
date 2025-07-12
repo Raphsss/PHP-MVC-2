@@ -12,10 +12,10 @@ abstract class DAO extends PDO
 
     public function __construct()
     {
-        $this->connectDatabase();
+        self::connectDatabase();
     }
 
-    private function connectDatabase()
+    private static function connectDatabase()
     {
         $dsn = "mysql:host={$_ENV['db']['host']}; dbname={$_ENV['db']['name']}";
 
@@ -31,3 +31,4 @@ abstract class DAO extends PDO
         }
     }
 }
+    

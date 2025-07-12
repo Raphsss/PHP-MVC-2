@@ -8,7 +8,23 @@ use Exception;
 
 final class AlunoController extends Controller
 {
-    final public static function form()
+    public static function index()
+    {
+        $model = new AlunoModel();
+        
+        try 
+        {
+            $model->getAllRows();
+        } catch(Exception $e) 
+        {
+            $model->setError("Ocorreu um erro ao buscar os alunos:");
+            $model->setError($e->getMessage());
+        }
+
+        parent::renderView('Aluno/ListaAluno.php', $model); 
+    }
+
+    public static function form() : void
     {
 
         $model = new AlunoModel();
@@ -21,6 +37,15 @@ final class AlunoController extends Controller
                 $model->Nome = $_POST['nome'];
                 $model->RA = $_POST['ra'];
                 $model->Curso = $_POST['curso'];
+                $model->save();
+
+                parent::redirect('/aluno');
+            } else
+            {
+                if(isset($_GET['id']))
+                {              
+                    $model = $model->getById( (int) $_GET['id'] );
+                }
             }
         } catch (Exception $e) 
         {
@@ -28,5 +53,23 @@ final class AlunoController extends Controller
         }
 
         parent::renderView('Aluno/FormAluno.php', $model);
+    }
+
+    public static function delete()
+    {
+        $model = new AlunoModel();
+        
+        try 
+        {
+            $model->delete( (int) $_GET['id']);
+            parent::redirect("/aluno");
+
+        } catch(Exception $e) 
+        {
+            $model->setError("Ocorreu um erro ao excluir o aluno:");
+            $model->setError($e->getMessage());
+        } 
+        
+        parent::renderView('Aluno/ListaAluno.php', $model);
     }
 }
