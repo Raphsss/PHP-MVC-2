@@ -1,7 +1,7 @@
 <?php
 
 include 'config.php';
-include 'autoload.php';
+include 'vendor/autoload.php';
 include 'routes.php';
 
 

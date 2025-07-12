@@ -1,0 +1,15 @@
+{
+    "name": "rafao/app",
+    "autoload": {
+        "psr-4": {
+            "Rafao\\App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Raphael Lucas",
+            "email": "rafaoliveira2009@Outlook.com"
+        }
+    ],
+    "require": {}
+}
