@@ -6,6 +6,12 @@ use App\Model\Model;
 
 abstract class Controller
 {
+    final protected static function isProtected() : void
+    {
+        if(!isset($_SESSION['usuarioLogado']))
+            header("Location: /login");
+    }
+
     final protected static function renderView(string $view, ?Model $model) : void
     {
         $arquivoView = VIEWS . "/$view";

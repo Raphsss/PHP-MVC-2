@@ -7,36 +7,37 @@
 
 body.page-student-list {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #121212;
+    color: #e0e0e0;
     padding: 2rem;
-    color: #333;
 }
 
 /* Tabela de alunos */
 .student-table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: #202022;
+    border: 1px solid #333;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* Cabeçalho */
 .table-header .header-cell {
-    background-color: #f1f1f1;
+    background-color: #2a2a2c;
     text-align: left;
     padding: 0.75rem;
     font-weight: bold;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #444;
+    color: #f0f0f0;
 }
 
-/* Células de dados */
 .table-body .data-cell {
     padding: 0.75rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #333;
 }
 
-/* Botão de atualização */
+/* Botões */
 .link-update {
     background-color: #007bff;
     color: #fff;
@@ -52,10 +53,8 @@ body.page-student-list {
 
 .link-update:hover {
     background-color: #0056b3;
-    text-decoration: none;
 }
 
-/* Botão de exclusão */
 .link-delete {
     background-color: #dc3545;
     color: #fff;
@@ -70,14 +69,12 @@ body.page-student-list {
 
 .link-delete:hover {
     background-color: #a71d2a;
-    text-decoration: none;
 }
 
-/* Linha de vazio */
 .empty-row .empty-cell {
     text-align: center;
     font-style: italic;
-    color: #666;
+    color: #888;
     padding: 1rem;
 }
 
@@ -96,9 +93,10 @@ body.page-student-list {
 
     .data-row {
         margin-bottom: 1rem;
-        background-color: #fff;
+        background-color: #202022;
         padding: 1rem;
-        border: 1px solid #ddd;
+        border: 1px solid #333;
+        border-radius: 4px;
     }
 
     .header-cell {
@@ -110,13 +108,34 @@ body.page-student-list {
         justify-content: space-between;
         padding: 0.5rem 0;
         border: none;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #333;
     }
 
     .data-cell::before {
         content: attr(data-label);
         font-weight: bold;
+        color: #aaa;
     }
 }
 
+.table-actions {
+    margin: 1.1rem 0 1rem 0; /* margem superior para alinhamento */
+    display: flex;
+    justify-content: flex-start;
+}
 
+.btn-add-student {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-add-student:hover {
+    background-color: #388e3c;
+}

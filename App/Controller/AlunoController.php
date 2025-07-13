@@ -10,6 +10,8 @@ final class AlunoController extends Controller
 {
     public static function index()
     {
+        parent::isProtected();
+
         $model = new AlunoModel();
         
         try 
@@ -26,6 +28,7 @@ final class AlunoController extends Controller
 
     public static function form() : void
     {
+        parent::isProtected();
 
         $model = new AlunoModel();
 
@@ -57,6 +60,8 @@ final class AlunoController extends Controller
 
     public static function delete()
     {
+        parent::isProtected();
+        
         $model = new AlunoModel();
         
         try 
