@@ -5,18 +5,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Cadastro de Aluno</title>
-    <link  rel="stylesheet" href="/css/Form.css" />
+    <link rel="stylesheet" href="/css/Form.css" />
 </head>
 
-<body class="page-student-form">
+<body class="page-form">
     <?php include VIEWS . '/Includes/navbar.php' ?>
 
-    <div class="form-container">
-        <div class="form-box">
+    <div class="form-wrapper">
+        <div class="form-container">
             <h1 class="form-title">Cadastro de Aluno</h1>
 
             <?php if (!empty(trim($model->getErrors()))): ?>
-                <div class="error-message">
+                <div class="alert-error">
                     <?= $model->getErrors() ?>
                 </div>
             <?php endif; ?>

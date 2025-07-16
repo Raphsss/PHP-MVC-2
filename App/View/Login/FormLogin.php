@@ -8,14 +8,14 @@
     <link href="/css/Form.css" rel="stylesheet" />
 </head>
 
-<body class="page-student-form">
+<body class="page-form">
 
-    <div class="form-container">
-        <div class="form-box">
+    <div class="form-wrapper">
+        <div class="form-container">
             <h1 class="form-title">Login</h1>
 
             <?php if (!empty($erro)) : ?>
-                <div class="error-message">
+                <div class="alert-error">
                     <?= htmlspecialchars($erro) ?>
                 </div>
             <?php endif; ?>
@@ -43,5 +43,4 @@
     </div>
 
 </body>
-
 </html>

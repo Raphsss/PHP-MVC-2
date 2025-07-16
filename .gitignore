@@ -1,11 +1,3 @@
 # Ignorar a pasta de dependências do Composer
 /vendor/
 
-# Ignorar arquivos de variáveis de ambiente (se você usar .env para configurações locais/sensíveis)
-# Por exemplo, .env, .env.local, .env.development, etc.
-.env
-.env.*.local
-.env.local
-.env.dev
-.env.test
-.env.prod

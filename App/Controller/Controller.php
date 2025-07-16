@@ -9,7 +9,7 @@ abstract class Controller
     final protected static function isProtected() : void
     {
         if(!isset($_SESSION['usuarioLogado']))
-            header("Location: /login");
+            self::redirect("/login");
     }
 
     final protected static function renderView(string $view, ?Model $model) : void

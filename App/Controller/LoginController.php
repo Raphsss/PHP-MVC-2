@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Model\LoginModel;
 
-final class LoginController
+final class LoginController extends Controller
 {
     public static function index() : void
     {
@@ -12,7 +12,7 @@ final class LoginController
 
         $model = new LoginModel();
 
-        if($_SERVER['REQUEST_METHOD'] == "POST")
+        if(parent::isPost())
         {            
             $model->Email = $_POST['email'];
             $model->Senha = $_POST['senha'];
