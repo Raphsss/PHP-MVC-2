@@ -13,7 +13,7 @@ final class LoginDAO extends DAO
     
     public function autenticar(LoginModel $model) : ?LoginModel
     {
-        $sql = "SELECT * FROM usuario WHERE email=? AND senha=? ";
+        $sql = "SELECT * FROM Usuario WHERE Email=? AND Senha=? ";
 
         $stmt = parent::$conn->prepare($sql);  
         $stmt->bindValue(1, $model->Email);

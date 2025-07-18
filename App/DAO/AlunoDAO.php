@@ -15,7 +15,7 @@ final class AlunoDAO extends DAO
 
     public function insert(AlunoModel $model) 
     {
-        $sql = "INSERT INTO Aluno (nome, ra, curso) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO Aluno (Nome, RA, Curso) VALUES (?, ?, ?)";
 
         $stmt = parent::$conn->prepare($sql);
 
@@ -32,7 +32,7 @@ final class AlunoDAO extends DAO
 
     public function update(AlunoModel $model) : AlunoModel
     {
-        $sql = "UPDATE aluno SET nome=?, ra=?, curso=? WHERE id=? ";
+        $sql = "UPDATE Aluno SET Nome=?, RA=?, Curso=? WHERE Id=? ";
 
         $stmt = parent::$conn->prepare($sql);
         $stmt->bindValue(1, $model->Nome);
@@ -46,7 +46,7 @@ final class AlunoDAO extends DAO
 
     public function delete(int $id) : bool
     {
-        $sql = "DELETE FROM aluno WHERE id=? ";
+        $sql = "DELETE FROM Aluno WHERE Id=? ";
 
         $stmt = parent::$conn->prepare($sql);  
         $stmt->bindValue(1, $id);
@@ -66,7 +66,7 @@ final class AlunoDAO extends DAO
 
     public function selectById(int $id)
     {
-        $sql = "SELECT * FROM aluno WHERE id=? ";
+        $sql = "SELECT * FROM Aluno WHERE Id=? ";
 
         $stmt = parent::$conn->prepare($sql);  
         $stmt->bindValue(1, $id);

@@ -2,8 +2,8 @@
 
 session_start();
 
-require '../App/config/config.php';
-require '../vendor/autoload.php';
-require '../App/config/routes.php';
+include '../App/config/config.php';
+include '../App/config/autoload.php';
+include '../App/config/routes.php';
 
 
